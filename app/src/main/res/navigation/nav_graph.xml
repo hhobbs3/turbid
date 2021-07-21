@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="binary.barbarian.turbid.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:name="binary.barbarian.turbid.Dice"
+        android:label="@string/dice_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
