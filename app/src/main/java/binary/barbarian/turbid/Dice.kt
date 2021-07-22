@@ -51,12 +51,12 @@ class Dice : Fragment() {
         val modifierId = R.id.editTextNumberSignedModifier
         val modifierTextView = view.findViewById<TextView>(R.id.editTextNumberSignedModifier)
         // Get the value of the text view
-        val modifier = modifierTextView.text.toString().toInt()
+        val modifier = modifierTextView.text.toString().ifBlank { "0" }.toInt()
         val showDiceTextView = view.findViewById<TextView>(textId)
-        if (modifier > 0) {
+        if (modifier > 0 ) {
             showDiceTextView.text = showDiceTextView.text.toString() + " + " + modifier.absoluteValue.toString()
             addToSum(view, modifier)
-        } else if (modifier < 0) {
+        } else if (modifier < 0 ) {
             showDiceTextView.text = showDiceTextView.text.toString() + " - " + modifier.absoluteValue.toString()
             addToSum(view, modifier)
         }
