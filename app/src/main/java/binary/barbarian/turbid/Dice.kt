@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import binary.barbarian.turbid.databinding.FragmentFirstBinding
+import kotlin.math.absoluteValue
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -23,7 +24,7 @@ class Dice : Fragment() {
 
     private fun countMe(view: View) {
         // Get the text view
-        val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
+        val showCountTextView = view.findViewById<TextView>(R.id.textview_sum)
         // Get the value of the text view
         val countString = showCountTextView.text.toString()
         var count = countString.toInt()
@@ -32,18 +33,48 @@ class Dice : Fragment() {
         showCountTextView.text = count.toString()
     }
 
+    private fun addToSum(view: View, diceVal: Int) {
+        val showSumTextView = view.findViewById<TextView>(R.id.textview_sum)
+        // Get the value of the text view
+        val countString = showSumTextView.text.toString()
+        var count = countString.toInt()
+        count += diceVal
+        showSumTextView.text = count.toString()
+    }
+
+    private fun clearSum(view: View) {
+        val showCountTextView = view.findViewById<TextView>(R.id.textview_sum)
+        showCountTextView.text = "0"
+    }
+
+    private fun addModifier(view: View, textId: Int) {
+        val modifierId = R.id.editTextNumberSignedModifier
+        val modifierTextView = view.findViewById<TextView>(R.id.editTextNumberSignedModifier)
+        // Get the value of the text view
+        val modifier = modifierTextView.text.toString().toInt()
+        val showDiceTextView = view.findViewById<TextView>(textId)
+        if (modifier > 0) {
+            showDiceTextView.text = showDiceTextView.text.toString() + " + " + modifier.absoluteValue.toString()
+            addToSum(view, modifier)
+        } else if (modifier < 0) {
+            showDiceTextView.text = showDiceTextView.text.toString() + " - " + modifier.absoluteValue.toString()
+            addToSum(view, modifier)
+        }
+    }
+
     private fun rollDice(view: View, textId: Int, diceSize: Int) {
         // Get the text view
         val showDiceTextView = view.findViewById<TextView>(textId)
-        val random = java.util.Random()
+        // Create random number in bounds of dice
         var randomNumber = 0
         if (diceSize > 0) {
-            randomNumber =  (1..diceSize).random() //random.nextInt(diceSize + 1)
+            randomNumber = (1..diceSize).random() //random.nextInt(diceSize + 1)
         }
-        //var roll = countString.toInt()
 
         // Display the new value in the text view.
         showDiceTextView.text = randomNumber.toString()
+        addToSum(view, randomNumber)
+        addModifier(view, textId)
     }
 
     override fun onCreateView(
@@ -61,7 +92,7 @@ class Dice : Fragment() {
 
 
         binding.randomButton.setOnClickListener {
-            val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
+            val showCountTextView = view.findViewById<TextView>(R.id.textview_sum)
             val currentCount = showCountTextView.text.toString().toInt()
             val action = DiceDirections.actionFirstFragmentToSecondFragment(currentCount)
             findNavController().navigate(action)
@@ -72,8 +103,8 @@ class Dice : Fragment() {
             myToast.show()
         }
 
-        binding.countButton.setOnClickListener{
-            countMe(view)
+        binding.clearButton.setOnClickListener{
+            clearSum(view)
         }
 
         binding.d100Button.setOnClickListener{

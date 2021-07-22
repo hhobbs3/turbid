@@ -10,6 +10,6 @@
     <string name="hello_first_fragment">0</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="toast_button_text">Toast</string>
-    <string name="count_button_text">Count</string>
+    <string name="clear_button_text">Clear</string>
     <string name="toast_text">Hello Toast!</string>
 </resources>
