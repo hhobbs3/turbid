@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import binary.barbarian.turbid.databinding.FragmentFirstBinding
+import binary.barbarian.turbid.databinding.FragmentDiceBinding
 import kotlin.math.absoluteValue
 
 /**
@@ -16,7 +16,7 @@ import kotlin.math.absoluteValue
  */
 class Dice : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentDiceBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -82,7 +82,7 @@ class Dice : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentDiceBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -134,6 +134,9 @@ class Dice : Fragment() {
         }
     }
 
+    fun sendMessage(view: View) {
+        // Do something in response to button
+    }
 
 
 

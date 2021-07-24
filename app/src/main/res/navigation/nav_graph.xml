@@ -9,7 +9,7 @@
         android:id="@+id/FirstFragment"
         android:name="binary.barbarian.turbid.Dice"
         android:label="@string/dice_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_dice">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
