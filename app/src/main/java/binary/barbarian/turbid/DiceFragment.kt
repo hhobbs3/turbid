@@ -14,7 +14,7 @@ import kotlin.math.absoluteValue
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class Dice : Fragment() {
+class DiceFragment : Fragment() {
 
     private var _binding: FragmentDiceBinding? = null
 
@@ -94,7 +94,7 @@ class Dice : Fragment() {
         binding.randomButton.setOnClickListener {
             val showCountTextView = view.findViewById<TextView>(R.id.textview_sum)
             val currentCount = showCountTextView.text.toString().toInt()
-            val action = DiceDirections.actionFirstFragmentToSecondFragment(currentCount)
+            val action = DiceFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
             findNavController().navigate(action)
         }
 

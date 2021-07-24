@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_constraintVertical_bias="0.45"
-    tools:context=".SecondFragment"
-    android:background="@color/screenBackground2">
+    tools:context=".DiceCustomFragment"
+    android:background="@drawable/dwarf"
+    android:backgroundTint="#80000000"
+    android:backgroundTintMode="src_over">
 
     <Button
         android:id="@+id/button_second"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="binary.barbarian.turbid.Dice"
+        android:name="binary.barbarian.turbid.DiceFragment"
         android:label="@string/dice_fragment_label"
         tools:layout="@layout/fragment_dice">
 
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="binary.barbarian.turbid.SecondFragment"
+        android:name="binary.barbarian.turbid.DiceCustomFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_dice_custom">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

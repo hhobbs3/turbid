@@ -7,28 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import binary.barbarian.turbid.databinding.FragmentSecondBinding
 import androidx.navigation.fragment.navArgs
+import binary.barbarian.turbid.databinding.FragmentDiceCustomBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class DiceCustomFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentDiceCustomBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
-    val args: SecondFragmentArgs by navArgs()
+    val args: DiceCustomFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentDiceCustomBinding.inflate(inflater, container, false)
         return binding.root
 
     }
